@@ -1,0 +1,58 @@
+{% extends 'mainsite.html' %}
+{% load static %}
+{% block title %}Arise and shine | Projects and Programmes {% endblock %}
+{% block body-content %}
+	<div class="jumbotron container w3-section">
+		<img src="{% static 'mainsite/images/as_logo.png' %}" alt="Arise and shine logo"
+		 width="20%" height="30%" class="img-responsive w3-left">
+		<article>
+			<section class="w3-section">
+				<p>
+				Our <abbr title="Community Based Organization">CBO</abbr> is committed to the empowerment, uplifting of living standards, 
+				and greater good of our community or society
+				For this reason we are engaging in community-geared projects in the following thematic areas:
+				</p>
+			</section>
+			
+			<dl>
+				<dt>
+					<a href="{% url 'mainsite:projects' thematic_area="liv" %}">Livelihood</a>
+				</dt>
+				<blockquote>
+					We empower our community members economically through promotion of Formal employment,
+					Farming (rice, arrow roots, sugarcane, livestock, horticulture) and Informal employment.
+				</blockquote>
+				<dt>
+					<a href="{% url 'mainsite:projects' thematic_area="hth" %}">Health</a>
+				</dt>
+				<blockquote>
+					We promote healthy living and access to affordable health care.
+				</blockquote>
+				<dt>
+					<a href="{% url 'mainsite:projects' thematic_area="edu" %}">Education</a>
+				</dt>
+				<blockquote>
+					Access to quality education and information is also our priority
+				</blockquote>
+				<dt>
+					<a href="{% url 'mainsite:projects' thematic_area="env" %}">Enviroment</a>
+				</dt>
+				<blockquote>
+					We promote Environmental protection and sustainable development.
+					Our organization is supporting community conservation actions such as wetland protection, tree planting exercises and
+					energy conservation. Human survival is dependent on the environment hence cleaner and healthier environment in vital. We
+					continue to support women on cooking energy conservation measures towards reducing indoor air pollution and premature
+					deaths.
+					We are also in the process of establishing tree nursery towards forestation programmes.
+
+				</blockquote>
+				<dt>
+					<a href="{% url 'mainsite:projects' thematic_area="scp" %}">Social Protection</a>
+				</dt>
+				<blockquote>
+					We strive to see that the community’s welfare is considered and protected from exploitation.
+				</blockquote>
+			</dl>
+		</article>
+	</div>
+{% endblock body-content %}

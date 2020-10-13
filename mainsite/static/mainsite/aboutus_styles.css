@@ -1,0 +1,39 @@
+.sidebar-nav{
+    list-style: none;
+  
+
+}
+.sidebar-nav li{
+    padding: 2px;
+}
+.sidebar-nav a{
+    display: block;
+}
+.sidebar-nav a:hover{
+    background-color: lightgrey;
+}
+.sidebar-nav a:visited{
+    background-color: palevioletred;
+    color: lightblue;
+}
+
+.affix{
+    top: 20px;
+}
+
+#values li,  #objectives li{
+    /*border: 1px solid;
+    padding: 10px;*/
+    list-style: none;
+}
+
+#story img{
+    max-width: 300px;
+    max-height: 200px;
+    float: left;
+    padding: 2%;
+}
+#story p{
+    white-space: pre-line;
+       
+}

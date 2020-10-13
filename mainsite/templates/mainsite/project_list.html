@@ -1,0 +1,53 @@
+{% extends 'mainsite.html' %}
+{% load static %}
+{% block title %} Arise and Shine |  projects {% endblock %}
+{% block body-content %}
+    <ul class="breadcrumb">
+            <li>
+                <a href="{% url 'mainsite:proj_and_prog' %}">Projects</a> &#9755; 
+            </li>
+            <li class="breadcrumb-item active">
+                <a href="{{ request.path }}">
+                    {% for project in project_list %} 
+                        {% if forloop.first %} {{ project.get_thematic_area_display  }} {% endif %}
+                    {% endfor %} 
+                </a>
+            </li>
+        </ul>
+    <div class="container w3-section">
+        {% if project_list %}
+            
+            {% for project in project_list  %}
+            <div class="jumbotron">
+                <!--project name-->
+                <div class="">
+                    <p class="alert alert-link">
+                        <a href="{% url 'mainsite:project_details' project.thematic_area project.id %}">
+                            <strong>{{ project.project_name }}</strong>
+                        </a>
+                    </p>
+                </div>
+                <div class="project-list jumbotron">
+                    {% for media in project.media.all %}
+                        <img src={{ media.picture.url}} alt="Picture" width="100%" class="embed-responsive">
+                    {% endfor %}
+                
+                    <section class="project-desc">
+                        <p >{{ project.project_description | truncatechars:200 }}
+                            <a class="btn btn-link w3-hover-light-blue" href="{% url 'mainsite:project_details' project.thematic_area project.id %}">Read More</a>
+                        </p>
+                    </section>
+                    
+                </div>
+            </div>
+            {% empty %}
+                <p class="alert alert-warning text-muted">
+                    No projects found in this category
+                </p>
+            {% endfor %}
+        {% else %}
+            <p class="alert alert-danger">No data found here</p>
+        {% endif %}
+        
+    </div>
+{% endblock %}

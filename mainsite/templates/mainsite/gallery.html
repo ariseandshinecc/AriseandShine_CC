@@ -1,0 +1,28 @@
+{% extends 'mainsite.html' %}
+{% block body-content %}
+    <div class="container">
+        <div class="w3-container w3-light-blue w3-section">
+            <h5>Arise and Shine Photo Gallery</h5>
+        </div>
+        {% if media_list %}
+            <div class="row w3-margin-top">
+                {% for media in media_list %}
+                    <div class="col-sm-4">
+                        <figure class="w3-card-2" style="max-width: 400px;">
+                        <img src="{{ media.picture.url }}" alt="Photo" style="width: 100%; " class="img-thumbnail embed-responsive-4by3">
+                            <figcaption class="w3-container">
+                                <a href="{{ media.project.get_absolute_url }}" data-toggle="tooltip" data-placement="auto" title="Read about this project">
+                                    {{ media.caption }}
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                {% empty %}
+                <p class="alert alert-warning">No photos found in the gallery</p>
+                {% endfor %}
+            </div>
+        {% else %}
+        <p class="alert alert-danger">Nothing in here</p>
+        {% endif %}
+    </div>
+{% endblock %}

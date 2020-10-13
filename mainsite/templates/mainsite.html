@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block rseponsive %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{% static 'mainsite/images/as_logo.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainsite/general_styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'mainsite/w3.css' %}">
+    <script type="text/javascript" src="{% static 'mainsite/js/w3.js' %}"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="{% static 'mainsite/js/shine.js' %}"></script>
+    {% block extra-style %}{% endblock %}
+    <title>{% block title %} Arise and Shine {% endblock %}</title>
+</head>
+<body class="">
+    <header class="w3-purple sticky-top" id="site-head">
+    {% block header %}
+        <div>
+            <div id="site-brand" class="navbar-header d-flex justify-content-start">
+                <a class="w3-left navbar-brand" href="{% url 'mainsite:home' %}">
+                    <img src="{% static 'mainsite/images/as_logo.png' %}" alt="logo" width="100%" class="embed-responsive">
+                </a>
+                <h1 class="w3-hide-small mr-auto">
+                    <a href="{% url 'mainsite:home' %}" class="w3-hover-text-dark-grey">Arise and Shine Care Centre</a>
+                </h1>
+                <a href="{% url 'mainsite:donate' %}" class="w3-hover-text-dark-grey w3-hide-small" id="donate-link">
+                    DONATE
+                </a>
+                <div class="w3-hide-medium w3-hide-large w3-text-light-blue w3-opennav ml-auto" id="menu-btn">
+                        <a href="javascript:void(0);" onclick="ariseNavs()" class="alert alert-link">&#9776;</a>
+                </div>
+            </div>
+            <nav class="navbar" id="nav-bar">
+                <ul class="">
+                    
+                    <li class="w3-hide-small nav-item"><a href="{% url 'mainsite:home' %}" class="nav-link">Home</a></li>
+                    <li class="dropdown w3-hide-small nav-item">
+                        <a href="{% url 'mainsite:about' %}" class="dropdown-toggle nav-link" data-toggle="dropdown" id="navbardrop">About us</a>
+                        <div class="dropdown-content w3-light-blue dropdown-menu">
+                            <a href="{% url 'mainsite:about' %}" class="dropdown-item">Our Story</a>
+                            <a href="{% url 'mainsite:team' %}" class="dropdown-item">Our Team</a>
+                            
+                        </div>
+                    </li>
+                    <li></li>
+                    <li class="dropdown w3-hide-small nav-item">
+                        <a href="{% url 'mainsite:proj_and_prog' %}" class="dropdown-toggle nav-link" data-toggle="dropdown">Projects</a>
+                        <div class="dropdown-content w3-light-blue dropdown-menu">
+                            {% for thematic_area in theme_list %}
+                                <a href="{% url 'mainsite:projects' thematic_area %}" class="dropdown-item">{{ thematic_area | title }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="dropdown w3-hide-small">
+                        <a href="{% url 'mainsite:involve' %}" class="dropdown-toggle nav-link" data-toggle="dropdown">Get Involved</a>
+                        <div class="dropdown-content w3-light-blue dropdown-menu">                         
+                            <a href="{% url 'mainsite:partnership' %}" class="dropdown-item">Partnership</a>
+                            <a href="{% url 'mainsite:careers' %}" class="dropdown-item">Careers</a>
+                            <a href="{% url 'mainsite:contact' %}" class="dropdown-item">Contact us</a>
+                            <span class="dropdown-divider"><span>
+                            <a href="{% url 'mainsite:donate' %}" class="dropdown-item">Donate</a>
+                        </div>
+                    </li>
+                
+                </ul>
+            </nav>
+            <div id="nav-small" class="w3-hide w3-hide-medium w3-hide-large w3-blue-grey">
+                <ul class="w3-ul">
+                    <li><a href="{% url 'mainsite:home' %}">Arise and Shine Care Center</a></li>
+                    <li class="dropdown dropright w3-dropdown-click">
+                        <a href="{% url 'mainsite:about' %}" class="dropdown-toggle" data-toggle="dropdown">About us</a>
+                        <ul class="w3-dropdown-content dropdown-menu dropdown-menu-right w3-light-blue">
+                            <a class="dropdown-item" href="{% url 'mainsite:about' %}">Our Story</a>
+                            <a class="dropdown-item" href="{% url 'mainsite:team' %}">Our Team</a>
+                        </ul>
+                    </li><br>
+                    <li class="dropdown dropright w3-dropdown-click">
+                        <a href="{% url 'mainsite:proj_and_prog' %}" class="dropdown-toggle" data-toggle="dropdown">Projects</a>
+                        <ul class="w3-dropdown-content dropdown-menu dropdown-menu-right w3-light-blue">
+                            {% for thematic_area in theme_list %}
+                                <a class="dropdown-item" href="{% url 'mainsite:projects' thematic_area %}">
+                                    {{ thematic_area | title }}
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    </li><br>
+                    <li class="dropdown dropright w3-dropdown-click">
+                        <a href="{% url 'mainsite:involve' %}" class="dropdown-toggle" data-toggle="dropdown">Get Involved</a>
+                        <ul class="dropdown-menu-right dropdown-menu w3-dropdown-content w3-light-blue">
+                            <a class="dropdown-item" href="{% url 'mainsite:partnership' %}">Partnership</a>
+                            <a class="dropdown-item" href="{% url 'mainsite:careers' %}">Careers</a>
+                            <a class="dropdown-item" href="{% url 'mainsite:contact' %}">Contact us</a>
+                        </ul>
+                    </li><br>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'mainsite:donate' %}">Donate</a></li>
+                </ul>
+            </div>
+        </div>
+    {% endblock header %}
+    </header>
+    {% block body-content %}{% endblock %}
+    <!--Pagination-->
+    <div class="">
+        {% block pagination %}
+            {% if is_paginated %}
+                <div class="pagination">
+                    <span class="page-link">
+                        {% if page_obj.has_previous %}
+                            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }} ">
+                                Previous
+                            </a>
+                        {% endif %}
+                        <span class="page-current text-black-50">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="{{ request.path }}?page={{ page_obj.next_page_number}} ">
+                                Next
+                            </a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+    <div class="slogan w3-center"><q class="">Unity is Prosperity</q></div>
+    <footer class="container-fluid w3-purple ">
+        {% block footer %}
+	
+            <div class="ss-links w3-center">
+                <a href="{{ contact.facebook }}" target="_blank"> 
+                	<img src="{% static 'mainsite/images/facebook-brands.svg' %}" style="width: 20px;">
+                </a> 
+                &nbsp; 
+                <a href="{{ contact.twitter }}" target="_blank">
+                	<img src="{% static 'mainsite/images/twitter-brands.svg' %}" style="max-width: 20px;">
+                </a>
+            </div>
+            <address class="w3-center">
+                <a class="">OMBEYI MARKET CENTRE, P.O BOX 18 - 40106, MIWANI - KENYA</a>&nbsp.&nbsp
+                <a href="tel:{{ contact.phone}} ">{{ contact.phone }}</a> &nbsp.&nbsp
+                {{ contact.email | urlize }}
+            </address>
+	
+            <div class="other-links w3-center">
+                <a href="{% url 'mainsite:gallery' %}">Gallery.</a>
+                <a href="{% url 'mainsite:downloads' %}">Downloads.</a>
+                <a href="{% url 'mainsite:new_event' %}">News and Events</a>
+            </div>
+            <div class="important-links w3-center">
+                <a href="{% url 'mainsite:proj_and_prog' %}">projects</a>
+                <a href="{% url 'mainsite:contact' %}">contact us</a>
+                <a href="{% url 'mainsite:about' %}">about</a>
+                <a href="{% url 'mainsite:partnership' %}">Become a partner</a>
+                <a href="{% url 'mainsite:donate' %}">donate</a>
+            </div>
+            <a href="#" target="_top" class="w3-right btn btn-info float-right w3-btn-floating" 
+                title="Back to top">
+                &#8613;
+            </a>
+            
+        {% endblock footer %}
+    </footer>
+</body>
+</html>

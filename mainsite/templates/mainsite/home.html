@@ -1,0 +1,60 @@
+
+{% extends 'mainsite.html' %}
+{% load static %}
+{% block extra-style %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mainsite/homepage_styles.css' %}">
+{% endblock %}
+{% block title %}Arise and Shine | Home{% endblock %}
+<style>
+	/* Make the carousel/slideshow image fully responsive */
+.carousel-inner img {
+	max-width: 50%
+    width: 100%;
+    height: 100%;
+}
+</style>
+{% block body-content %}
+	<div class="container">
+		{% if carousel %}
+			<div id="slideshow" class="carousel slide w3-section" data-ride="carousel">
+				<ul class="carousel-indicators">
+					{% for count in carousel %}
+						<li data-target="#slideshow" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %} active {% endif %}"></li>
+					{% endfor %}
+				</ul>
+				<div class="carousel-inner">
+					{% for image in carousel %}
+						<div class="carousel-item {% if forloop.first %} active {% endif %}">
+							<img src="{{ image.picture.url }}" alt="Picture_0{{ forloop.counter }}" class="img-fluid rounded">
+							<div class="carousel-caption">
+								<p>{{ image.caption }}</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				
+				
+				<!-- Left and Right controls -->
+				<a class="carousel-control-prev" href="#slideshow" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#slideshow" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+		{% endif %}
+		<div class="jumbotron w3-section">
+			<p>Arise and shine Centre is a non-profit community-based organization</p>
+			<p><a href="{% url 'mainsite:about' %}" class="home-link">Read our story <span class="w3-hide">&rarr;</span></a></p>
+		</div>
+		<div class="jumbotron">
+			<p>We are a community and our focus is the community</p>
+			<a href="{% url 'mainsite:proj_and_prog' %}" class="home-link">See our projects <span class="w3-hide">&rarr;</span></a>
+		</div>
+		<div class="jumbotron">
+			<p>We seek to inform you on latest development activities in our community</p>
+			<a href="{% url 'mainsite:new_event' %}" class="home-link">Check out the latest news <span class="w3-hide">&rarr;</span></a>
+		</div>
+	</div>
+	
+{% endblock body-content %}

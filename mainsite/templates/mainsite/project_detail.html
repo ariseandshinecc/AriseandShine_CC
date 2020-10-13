@@ -1,0 +1,40 @@
+{% extends 'mainsite.html' %}
+{% block title %} Arise and Shine | {{ project }} {% endblock %}
+{% block body-content %}
+    <ul class="breadcrumb">
+            <li>
+                <a href="{% url 'mainsite:proj_and_prog' %}">Projects</a> &#9755; 
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'mainsite:projects' project.thematic_area %}">{{ project.get_thematic_area_display }}</a>
+            </li>
+            <li class="breadcrumb-item active">
+                <a href="{{ project.get_absolute_url }} ">{{ project.project_name }}</a>
+            </li>
+        </ul>
+    <div class="container w3-section">
+        
+        <h4 class="alert alert-heading alert-info"> {{ project.project_name }} </h4>
+        <article class="a-project">
+            
+                <img src="{{ project.media.first.picture.url }}" alt="Visual" class="embed-responsive-4by3">
+            
+            <section class="project-narration">{{ project.project_description }}</section>
+            {% if project.media.count > 1 %}
+                <img src="{{ project.media.last.picture.url}} " alt="Visual" class="embed-responsive-4by3">
+            {% endif %}
+            
+            <section>
+            {% if project.impact_set.all %}
+                <h5 class="text-black-50">Impact of this project</h5>
+                <ul>
+                {% for impact in project.impact_set.all %}
+                    <li>{{ impact.impact_text }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            </ul>
+            </section>
+        </article>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'mainsite.html' %}
+{% block title %}Arise and Shine | Contact us{% endblock %}
+{% load static %}
+{% block body-content %}
+	<div class="container">
+		<p>
+			Gives a call or WhatsApp us on 
+			<a href="https://api.whatsapp.com/send?phone={{ contact.whatsapp}}" target="_blank">{{ contact.phone }}</a> 
+		</p>
+		<p>
+			Like and Follow our social media pages
+			<br>
+			<a href="{{ contact.facebook }}" target="_blank" class="">
+				<img src="{% static 'mainsite/images/facebook-brands.svg' %}" style="max-width: 5%; margin: auto;">
+			</a>&nbsp;
+			<a href="{{ contact.twitter }}" target="_blank" class="">
+				<img src="{% static 'mainsite/images/twitter-brands.svg' %}" style="max-width: 5%; margin: auto;">
+			</a>
+			
+		</p>
+		<p>
+			Email us {{ contact.email | urlize }}
+	    </p>
+		<p class="text-black-50"> OR </p>
+		<h2 class="w3-text-light-blue">Leave us a message</h2>
+		 
+		<form class="jumbotron" method="post" action="{% url 'mainsite:message' %}" role="form">
+			{% if messages %}
+				{% for message in messages %}
+					<div class="w3-panel w3-w3-pale-green w3-border w3-round w3-display-container">
+						<span onclick="this.parentElement.style.display='none'"
+							class="w3-btn w3-large w3-display-topright">&times;
+						</span>
+						<p class="alert alert-success">Message sent!</p>
+						<p {% if message.tags %} class="{{ message.tags }} text-success" {% endif %}>
+							{{ message }}
+						</p>
+					</div>
+				{% endfor %}
+			{% endif %}
+			<p class="text-danger">{{ error_message }}</p>
+			{% csrf_token %}
+			<table class="table-responsive-sm">
+				
+				{{ form }} 
+			</table>
+			
+			<input type="submit" value="Send" class="w3-right btn btn-outline-success" title="Submit your message">
+		</form>
+		
+	</div>
+{% endblock body-content %}
