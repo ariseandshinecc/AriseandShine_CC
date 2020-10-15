@@ -20,7 +20,7 @@
     <title>{% block title %} Arise and Shine {% endblock %}</title>
 </head>
 <body class="">
-    <header class="w3-purple sticky-top" id="site-head">
+    <header class="w3-purple" id="site-head">
     {% block header %}
         <div>
             <div id="site-brand" class="navbar-header d-flex justify-content-start">
@@ -37,7 +37,7 @@
                         <a href="javascript:void(0);" onclick="ariseNavs()" class="alert alert-link">&#9776;</a>
                 </div>
             </div>
-            <nav class="navbar" id="nav-bar">
+            <nav class="navbar sticky-top w3-purple w3-hide-small" id="nav-bar">
                 <ul class="">
                     
                     <li class="w3-hide-small nav-item"><a href="{% url 'mainsite:home' %}" class="nav-link">Home</a></li>
@@ -143,7 +143,7 @@
                 <a href="{{ contact.twitter }}" target="_blank">
                 	<img src="{% static 'mainsite/images/twitter-brands.svg' %}" style="max-width: 20px;">
                 </a>
-            </div>
+            </div><br>
             <address class="w3-center">
                 <a class="">OMBEYI MARKET CENTRE, P.O BOX 18 - 40106, MIWANI - KENYA</a>&nbsp.&nbsp
                 <a href="tel:{{ contact.phone}} ">{{ contact.phone }}</a> &nbsp.&nbsp
