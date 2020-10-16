@@ -22,7 +22,7 @@
 <body>
     <header class="w3-purple sticky-top" id="site-head">
     {% block header %}
-        <div>
+        
             <div id="site-brand" class="navbar-header d-flex justify-content-start">
                 <a class="w3-left navbar-brand" href="{% url 'mainsite:home' %}">
                     <img src="{% static 'mainsite/images/as_logo.png' %}" alt="logo" width="100%" class="embed-responsive">
@@ -103,7 +103,7 @@
                     <li><a href="{% url 'mainsite:donate' %}">Donate</a></li>
                 </ul>
             </div>
-        </div>
+        
     {% endblock header %}
     </header>
     {% block body-content %}{% endblock %}

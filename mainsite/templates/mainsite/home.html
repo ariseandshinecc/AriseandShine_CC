@@ -8,12 +8,20 @@
 <style>
 	/* Make the carousel/slideshow image fully responsive */
 .carousel-inner img {
-	max-width: 50%
+	max-width: 50%;
     width: 100%;
     height: 100%;
 }
+#d-msg{
+	color: red;
+}
 </style>
 {% block body-content %}
+	<div class="container-fluid w3-center">
+		<a href="{% url 'mainsite:director_message' %}" id="d-msg">
+			Read message from director &#8921;
+		</a>
+	</div>
 	<div class="container body-content">
 		{% if carousel %}
 			<div id="slideshow" class="carousel slide w3-section" data-ride="carousel">

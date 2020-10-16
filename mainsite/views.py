@@ -55,6 +55,10 @@ def index(request):
     carousel = Media.objects.filter(carousel=True)[:5]
     return render(request, 'mainsite/home.html', {'carousel': carousel})
 
+def director_message(request):
+    """ Render the Message from director."""
+    return render(request, 'mainsite/director_msg.html')
+
 class NewEventView(ListView):
     """
     View for news and events.

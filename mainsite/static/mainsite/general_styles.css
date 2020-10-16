@@ -15,23 +15,16 @@ a{
     text-decoration: none;
 }
 
-#site-brand{
-    display: flex;
-    display: -webkit-flex;
-}
+
 header h1{
     text-size-adjust: auto;
     font-size: 200%;
 }
 #donate-link{
-    align-self: center;
-    justify-self: flex-end;
-    -webkit-align-self: center;
-    -webkit-justify-self: flex-end;  
+     
     font-size: 150%; 
-    order: 2;
-    position: relative;
-    right: 0;
+    
+    
 }
 #site-brand img{
     max-width: 70px;
