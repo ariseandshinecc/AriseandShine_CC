@@ -5,7 +5,6 @@
 html{
     scroll-behavior: smooth;
 }
-
 a:hover{
     text-shadow: aquamarine;
     text-decoration: none;
