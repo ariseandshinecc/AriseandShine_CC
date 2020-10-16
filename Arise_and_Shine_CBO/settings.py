@@ -131,4 +131,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Phone number representation on the database
+
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
+
+# Sending of emails
+
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
