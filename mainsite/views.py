@@ -109,7 +109,13 @@ def partnership(request):
     """
     View for partnership
     """
-    return render(request, 'mainsite/partner.html')
+    donations = Donation.objects.all()
+    partners = Partner.objects.all()
+    context = {
+        'donations': donations,
+        'partners': partners,
+    }
+    return render(request, 'mainsite/partner.html', context)
 
 def send_message(request):
     

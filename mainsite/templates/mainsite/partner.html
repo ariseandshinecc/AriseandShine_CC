@@ -1,9 +1,18 @@
 {% extends 'mainsite.html' %}
 {% block title %}Arise and Shine | Partners{% endblock %}
 {% block body-content %}
-    <div class="container">
-        [Our partners]<br>
-        <p class="text-info">Our is mission is powered by people like you joining our community</p>
+    <div class="container w3-section jumbotron">
+
+        {% for donor in donations %}
+            <img src="{{ donor.logo.url }}" alt="donor_logo" class="logo" 
+            title="{{ donor.donor_name }} ">
+        {% endfor %}
+
+        {% for partner in partners %}
+            <img src="{{ partner.logo.url }}" alt="partner_logo" class="logo" 
+            title="{{ partner.partner_name }}">
+        {% endfor %}
+        <p class="text-info">Our mission is powered by people like you joining our community.</p>
     </div>
     
 {% endblock %}
