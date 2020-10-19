@@ -282,7 +282,7 @@ class Project(models.Model):
         ('social-Protection', 'Social Protection')
     ]
 
-    project_name = models.CharField(max_length=200)
+    project_name = models.CharField(max_length=200, unique=True)
     thematic_area = models.CharField(max_length=17, choices=themes)
     project_description = models.TextField()
 
@@ -290,7 +290,7 @@ class Project(models.Model):
                                       help_text='Select partners for this project if any')
     donations = models.ManyToManyField('Donation', blank=True,
                                        help_text='Select donors for this project if any')
-    start_date = models.DateField(verbose_name="Started")
+    start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True, verbose_name="Ended")
     media = models.ManyToManyField(Media, blank=True)
     

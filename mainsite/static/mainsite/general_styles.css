@@ -88,10 +88,6 @@ nav li a:hover{
     display: block;
 }
 
-table{
-    display: inline-table;
-    table-layout: auto;
-}
 .project-list {
     display: flex;
     display: -webkit-flex;
@@ -124,9 +120,7 @@ table{
 blockquote{
     white-space: pre-line;
 }
-.gallery img{
-    max-width: 300px;
-}
+
 /* Slogan styling */
 .slogan{
     text-shadow: 0 5px 3px purple;

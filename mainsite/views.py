@@ -46,6 +46,10 @@ class GalleryView(ListView):
     context_object_name = "media_list"
     template_name = "mainsite/gallery.html"
 
+    def get_queryset(self):
+        return Media.objects.order_by('id')[::-1]
+    
+
 
 def get_involved(request):
     return render(request, 'mainsite/involve.html')
@@ -92,15 +96,7 @@ class ProjectDetailView(DetailView):
     View of a single project
     '''
     model = Project
-    #template_name = 'mainsite/project_detail.html'
 
-    '''def get_context_data(self, **kwargs):
-        # base implementation to get a context
-        context = super().get_context_data(**kwargs)
-
-        # 
-        context['impacts'] = self.impact_set.all()
-        return context'''
 
     def get_queryset(self):
         """

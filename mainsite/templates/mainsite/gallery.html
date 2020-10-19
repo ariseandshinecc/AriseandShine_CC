@@ -13,7 +13,7 @@
                         <img src="{{ media.picture.url }}" alt="Photo" style="width: 100%; " class="img-thumbnail embed-responsive-4by3">
                             <figcaption class="w3-container">
                                 <a href="{{ media.project.get_absolute_url }}" data-toggle="tooltip" data-placement="auto" title="Read about this project">
-                                    {{ media.caption }}
+                                    <pre class="pre-scrollable">{{ media.caption }}</pre>
                                 </a>
                             </figcaption>
                         </figure>
