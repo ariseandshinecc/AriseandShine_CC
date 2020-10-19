@@ -20,25 +20,23 @@
             {% for project in project_list  %}
             <div class="jumbotron">
                 <!--project name-->
-                <div class="">
-                    <p class="alert alert-link">
-                        <a href="{% url 'mainsite:project_details' project.thematic_area project.id %}">
-                            <strong>{{ project.project_name }}</strong>
-                        </a>
-                    </p>
-                </div>
-                <div class="project-list jumbotron">
+                <div class="media border p-3 project-list">
                     {% for media in project.media.all %}
-                        <img src={{ media.picture.url}} alt="Picture" width="100%" class="embed-responsive">
+                        {% if forloop.last %}
+                            <img src="{{ media.picture.url }} " alt="Picture" class="mr-3 mt-3 w3-round">
+                        {% endif %}
                     {% endfor %}
-                
-                    <section class="project-desc">
-                        <p >{{ project.project_description | truncatechars:200 }}
-                            <a class="btn btn-link w3-hover-light-blue" href="{% url 'mainsite:project_details' project.thematic_area project.id %}">Read More</a>
-                        </p>
-                    </section>
                     
-                </div>
+                    <div class="media-body">
+                        <p class="alert alert-link">
+                            <a href="{{ project.get_absolute_url }} ">{{ project.project_name }}</a>
+                        </p>
+                        <p class="">
+                            {{ project.project_description | truncatewords:30 }}
+                            <a href="{{ project.get_absolute_url }}" class="btn btn-link w3-hover-light-blue">Read More</a>
+                        </p>
+                    </div>
+                  </div>
             </div>
             {% empty %}
                 <p class="alert alert-warning text-muted">
