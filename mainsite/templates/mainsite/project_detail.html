@@ -17,9 +17,9 @@
         <h4 class="alert alert-heading alert-info"> {{ project.project_name }} </h4>
         <article class="a-project">
             
-                <img src="{{ project.media.first.picture.url }}" alt="Visual" class="embed-responsive-4by3">
+                <img src="{{ project.media.first.picture.url }}" alt="project photo" class="embed-responsive-4by3">
             
-            <section class="project-narration">{{ project.project_description }}</section>
+            <section class="narration">{{ project.project_description }}</section>
             {% if project.media.count > 1 %}
                 <img src="{{ project.media.last.picture.url}} " alt="Visual" class="embed-responsive-4by3">
             {% endif %}
@@ -33,7 +33,7 @@
                 {% endfor %}
                 </ul>
             {% endif %}
-            </ul>
+            
             </section>
         </article>
     </div>

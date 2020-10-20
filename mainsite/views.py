@@ -7,6 +7,7 @@ from .models import *
 from .forms import MessageForm
 from django.contrib import messages
 from django.views.generic import ListView, DetailView
+from django.utils import timezone
 # Create your views here.
 
 
@@ -68,7 +69,13 @@ class NewEventView(ListView):
     View for news and events.
     """
     model = NewsEvent
+    context_object_name = "item_list"
     template_name = 'mainsite/news-events.html'
+
+    def get_queryset(self):
+        return NewsEvent.objects.filter(
+            pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+    
 
 
 def team(request):
