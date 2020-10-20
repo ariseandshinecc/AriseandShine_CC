@@ -138,3 +138,11 @@ PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 # Sending of emails
 
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+
+# A list of people who get error code notifications
+
+ADMINS = [('Hezron', 'otienoh68@gmail.com')]
+
+# A list of people who get broken link notifications
+
+MANAGERS = [('Enocka Odongo', 'enockaodongo13@gmail.com')]
