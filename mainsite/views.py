@@ -13,7 +13,12 @@ from django.utils import timezone
 
 def about(request):
     """About us page view"""
-    about = Profile.objects.get(id=1)
+    try:
+        about = Profile.objects.get(id=1)
+    except:
+        return render(request, 'mainsite/about.html', 
+        {'default_message': 'No story has been added. I have emailed the admin about this.'})
+    
     return render(request, 'mainsite/about.html', {'about': about})
 
 def careers(request):
