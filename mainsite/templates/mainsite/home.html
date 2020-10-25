@@ -50,15 +50,21 @@
 		{% endif %}
 		<div class="jumbotron w3-section">
 			<p>Arise and shine Centre is a non-profit community-based organization</p>
-			<p><a href="{% url 'mainsite:about' %}" class="home-link">Read our story <span class="w3-hide">&rarr;</span></a></p>
+			<p class="text-primary">
+				<a href="{% url 'mainsite:about' %}" class="home-link">Read our story <span class="w3-hide">&rarr;</span></a>
+			</p>
 		</div>
 		<div class="jumbotron">
 			<p>We are a community and our focus is the community</p>
-			<a href="{% url 'mainsite:proj_and_prog' %}" class="home-link">See our projects <span class="w3-hide">&rarr;</span></a>
+			<a href="{% url 'mainsite:proj_and_prog' %}" class="home-link text-primary">
+				See our projects <span class="w3-hide">&rarr;</span>
+			</a>
 		</div>
 		<div class="jumbotron">
 			<p>We seek to inform you on latest development activities in our community</p>
-			<a href="{% url 'mainsite:new_event' %}" class="home-link">Check out the latest news <span class="w3-hide">&rarr;</span></a>
+			<a href="{% url 'mainsite:new_event' %}" class="home-link text-primary">
+				Check out the latest news <span class="w3-hide">&rarr;</span>
+			</a>
 		</div>
 	</div>
 	
