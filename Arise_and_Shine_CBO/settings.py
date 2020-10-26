@@ -106,6 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Make the site secure 
+
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE')
+
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE')
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
