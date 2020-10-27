@@ -108,9 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Make the site secure 
 
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', cast=bool)
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', cast=bool)
 
