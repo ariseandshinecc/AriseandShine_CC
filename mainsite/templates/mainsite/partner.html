@@ -4,13 +4,22 @@
     <div class="container w3-section jumbotron">
 
         {% for donor in donations %}
-            <img src="{{ donor.logo.url }}" alt="donor_logo" class="logo" 
-            title="{{ donor.donor_name }} ">
+            {% if donor.logo %}
+                <a href="{{ donor.other_information }} ">
+                    <img src="{{ donor.logo.url }}" alt="{{ donor.donor_name }}_logo " class="logo" 
+                        title="{{ donor.donor_name }} ">
+                </a>
+            {% endif %}
+            
         {% endfor %}
 
         {% for partner in partners %}
-            <img src="{{ partner.logo.url }}" alt="partner_logo" class="logo" 
-            title="{{ partner.partner_name }}">
+            {% if partner.logo %}
+                <a href="{{ partner.more_info }} ">
+                    <img src="{{ partner.logo.url }}" alt="{{ partner.partner_name}}_logo" class="logo" 
+                        title="{{ partner.partner_name }}">
+                </a>
+            {% endif %}
         {% endfor %}
         <p class="text-info">Our mission is powered by people like you joining our community.</p>
     </div>
