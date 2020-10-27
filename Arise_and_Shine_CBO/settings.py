@@ -108,12 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Make the site secure 
 
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT')
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', cast=bool)
 
 
-CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE')
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', cast=bool)
 
-SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE')
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', cast=bool)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
