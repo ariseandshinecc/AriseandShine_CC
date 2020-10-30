@@ -2,22 +2,6 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 
-class AddressInline(admin.TabularInline):
-    model = Address
-    fields = [
-        'physical_address',
-        'postal_address',
-        'postal_code',
-        'city',
-        'site_map'
-    ]
-    extra = 0
-
-class ContactInline(admin.StackedInline):
-    model = Contact
-    fields = ['phone', 'whatsapp', 'email', 'facebook', 'twitter']
-    extra = 0
-
 
 class ObjectiveInline(admin.TabularInline):
     model = Objective
@@ -37,7 +21,7 @@ class ProfileAdmin(admin.ModelAdmin):
         ('Vision', {'fields': ['vision']}),
     ]
 
-    inlines = [ObjectiveInline, ValueInline, AddressInline, ContactInline]
+    inlines = [ObjectiveInline, ValueInline]
 
     list_display = ['brand', 'slogan', 'mission', 'vision']
 
@@ -133,3 +117,11 @@ class MediaAdmin(admin.ModelAdmin):
     ]
     list_display = ('caption', 'picture', 'carousel')
     list_per_page = 10
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('phone', 'whatsapp', 'email', 'facebook', 'twitter')
+
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ('physical_address', 'postal_address', 'postal_code', 'city')

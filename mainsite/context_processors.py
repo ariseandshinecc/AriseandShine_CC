@@ -14,7 +14,7 @@ def contacts(request):
     Returns contact objects
     """
     try:
-    	contact = Contact.objects.get(pk=1)
+    	contact = Contact.objects.get()
     except:
     	print("No contact information added")
     	return {}
