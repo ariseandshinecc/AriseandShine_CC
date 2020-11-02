@@ -1,0 +1,16 @@
+{% extends 'mainsite.html' %}
+
+{% load static %}
+{% block title %}Volunteer with us {% endblock %}
+{% block body-content %}
+    <div class="container w3-section jumbotron">
+        <p class="text-info">Are you interested in volunteering with our organization?</p>
+        <p class="narration">
+            Please write to us with more information about yourself, yourself
+            availability and what you hope to contribute to our work.
+        </p>
+        <p class="underline">Email: 
+            <span class="text-primary" style="text-decoration: underline;">{{ contact.email | urlize }}</span> 
+        </p>
+    </div>
+{% endblock %}

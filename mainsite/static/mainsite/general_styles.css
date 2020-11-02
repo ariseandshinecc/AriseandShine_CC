@@ -14,7 +14,9 @@ a:hover{
 a{
     text-decoration: none;
 }
-
+.underline {
+    text-decoration: underline;
+}
 
 header h1{
     text-size-adjust: auto;
@@ -97,7 +99,6 @@ nav li a:hover{
 .narration{
     white-space: pre-wrap;
     word-wrap: break-word;
-    text-indent: 5%;
 }
 .a-project{
     display: flex;

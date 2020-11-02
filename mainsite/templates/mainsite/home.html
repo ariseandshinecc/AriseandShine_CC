@@ -21,7 +21,7 @@
 	</div>
 	<div class="container body-content">
 		{% if carousel %}
-			<div id="slideshow" class="carousel slide w3-section" data-ride="carousel">
+			<div id="slideshow" class="carousel slide w3-section" data-ride="carousel" data-interval="3000">
 				<ul class="carousel-indicators">
 					{% for count in carousel %}
 						<li data-target="#slideshow" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %} active {% endif %}"></li>
@@ -66,6 +66,9 @@
 				Check out the latest news <span class="w3-hide">&rarr;</span>
 			</a>
 		</div>
+		<section>Impact at a Glance
+			
+		</section>
 	</div>
 	
 {% endblock body-content %}

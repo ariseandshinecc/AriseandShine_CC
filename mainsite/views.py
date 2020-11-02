@@ -150,3 +150,8 @@ def send_message(request):
         form = MessageForm()
 
 
+def volunteer(request):
+    """
+    Render volunteer page
+    """
+    return render(request, 'mainsite/volunteer.html',)
