@@ -1,6 +1,6 @@
 # AriseandShine_CC
 
-This repository contains django code that delivers the ariseandshinecc.org web application.
+This repository contains django code that delivers the www.ariseandshinecc.org web application.
 
 ## Requirements
 
@@ -22,12 +22,14 @@ This repository contains django code that delivers the ariseandshinecc.org web a
   - Activate the virtual environment.
   
 ## Step 4: Clone this repostory.
+
   - git clone https://github.com/google-boy/AriseandShine_CC.git in the virtual env
   - pip install -r requirements.txt. This install all the project requirements including django,
 
 ## Step 5: Sensitive data
-  - Create an .env file this kind of information
+
+  - Create an .env file to store this kind of information
     
-      SECRET_KEY=
-      DEBUG=
-      DATABASE_URL=
+      - SECRET_KEY=
+      - DEBUG=
+      - DATABASE_URL=
