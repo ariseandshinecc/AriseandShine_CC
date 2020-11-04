@@ -53,7 +53,7 @@ class GalleryView(ListView):
     template_name = "mainsite/gallery.html"
 
     def get_queryset(self):
-        return Media.objects.order_by('id')[::-1]
+        return Media.objects.filter(carousel=False).order_by('id')[::-1]
     
 
 
