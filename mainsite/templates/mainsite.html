@@ -70,7 +70,7 @@
                         </div>
                     </li>
                     <li class="w3-hide-small nav-item">
-                        <a href="{% url 'mainsite:new_event' %}" class="nav-link">News and Events/Media Center</a>
+                        <a href="{% url 'mainsite:new_event' %}" class="nav-link">News and Events</a>
                     </li>
                 </ul>
             </nav>
@@ -104,7 +104,7 @@
                         </ul>
                     </li><br>
                     <li>
-                        <a href="{% url 'mainsite:new_event' %}">News and Events/Media Center</a>
+                        <a href="{% url 'mainsite:new_event' %}">News and Events</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="{% url 'mainsite:donate' %}">Donate</a></li>
@@ -139,7 +139,7 @@
         {% endblock %}
     </div>
     <div class="slogan w3-center"><q class="">Unity is Prosperity</q></div>
-    <footer class="container-fluid w3-purple ">
+    <footer class="container-fluid w3-purple d-flex flex-column">
         {% block footer %}
 	
             <div class="ss-links w3-center">
@@ -153,14 +153,14 @@
             </div><br>
             <address class="w3-center">
                 <a class="">OMBEYI MARKET CENTRE, P.O BOX 18 - 40106, MIWANI - KENYA</a>&nbsp.&nbsp
-                <a href="tel:{{ contact.phone}} ">{{ contact.phone }}</a> &nbsp.&nbsp
+                <a href="tel:{{ contact.phone}} ">{{ contact.phone }}</a>. &nbsp &nbsp
                 {{ contact.email | urlize }}
             </address>
 	
             <div class="other-links w3-center">
                 <a href="{% url 'mainsite:gallery' %}">Gallery.</a>
                 <a href="{% url 'mainsite:downloads' %}">Downloads.</a>
-                <a href="{% url 'mainsite:new_event' %}">News and Events</a>
+                <a href="{% url 'mainsite:new_event' %}">Media center</a>
             </div>
             <div class="important-links w3-center">
                 <a href="{% url 'mainsite:proj_and_prog' %}">projects</a>
@@ -169,7 +169,7 @@
                 <a href="{% url 'mainsite:partnership' %}">Become a partner</a>
                 <a href="{% url 'mainsite:donate' %}">donate</a>
             </div>
-            <a href="#" target="_top" class="w3-right btn btn-info float-right w3-btn-floating" 
+            <a href="#" target="_top" class="w3-right btn btn-info w3-btn-floating" 
                 title="Back to top">
                 &#8613;
             </a>

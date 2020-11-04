@@ -21,6 +21,7 @@
 	</div>
 	<div class="container body-content">
 		{% if carousel %}
+		<!--Images on a slideshow-->
 			<div id="slideshow" class="carousel slide w3-section" data-ride="carousel" data-interval="3000">
 				<ul class="carousel-indicators">
 					{% for count in carousel %}
@@ -48,6 +49,7 @@
 				</a>
 			</div>
 		{% endif %}
+		<!--Homepage intro and links-->
 		<div class="jumbotron w3-section">
 			<p>Arise and Shine Care Center is a non-profit community-based organization</p>
 			<p class="text-primary">
@@ -66,8 +68,65 @@
 				Check out the latest news <span class="w3-hide">&rarr;</span>
 			</a>
 		</div>
-		<section>Impact at a Glance
-			
+		<!--Impacts on a slideshow-->
+		<section class="w3-center">
+			<p class="alert underline lead">Impact at a Glance</p>
+			<div id="impact" class="carousel slide" data-ride="carousel" data-interval="6000">
+				<ul class="carousel-indicators">
+					<li data-target="#impact" data-slide-to="0" class="active"></li>
+					<li data-target="#impact" data-slide-to="1"></li>
+				</ul>
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="d-inline-flex bg-info rounded">
+							<p class="p-3">
+								<span class="badge badge-pill badge-dark">34</span> youth groups supported and registered
+							</p>
+							<p class="p-3">
+								<span class="badge badge-pill badge-dark">15</span> women groups supported and registered
+							</p>
+							<p class="p-3">
+								<span class="badge badge-pill badge-dark">10</span> groups supported and registered
+							</p>
+						</div>
+					</div>
+					<div class="carousel-item ">
+						<div class="d-inline-flex bg-success rounded">
+							<p class="p-3">
+								<span class="badge badge-pill badge-light">10</span> groups trained on capacity development
+							</p>
+							<p class="p-3">
+								<span class="badge badge-pill badge-light">48</span> youths trained on digital literacy
+							</p>
+							<p class="p-3">
+								<span class="badge badge-pill badge-light">3</span> groups trained smart farming
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<a href="#impact" class="carousel-control-prev" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a href="#impact" class="carousel-control-next" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+		</section>
+		<!--Community quotes-->
+		<section class="w3-section row row-padding">
+			<div class="col-sm-6 border border-warning border-right-0 rounded-circle jumbotron">
+				<p class="font-italic">“The best way to find yourself is to lose yourself in the service of others.”</p>
+				<p class="w3-right font-italic">~ Mahatma Gandhi</p>
+			</div>
+			<div class="col-sm-6 border border-warning border-left-0 rounded-circle jumbotron">
+				<p class="font-italic">
+					“At the end of the day it is not about what you have or even what you have accomplished...…
+					it is about who you have lifted up, who you have made better. It is about what you have given back.”
+				</p>
+				<p class="w3-right font-italic">~ Denzel Washington</p>
+			</div>
 		</section>
 	</div>
 	
