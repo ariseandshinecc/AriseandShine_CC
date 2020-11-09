@@ -87,7 +87,7 @@ class Donation(models.Model):
         ('gov', 'Government'),
         ('unc', 'Uncategorized')
     ]
-    donor_name = models.CharField(max_length=50)
+    donor_name = models.CharField(max_length=50, unique=True)
     donor_category = models.CharField(
         max_length=3, choices=donor_choices, default='unc', blank=True)
     pledge = models.CharField(max_length=100, blank=True, null=True)
@@ -138,7 +138,7 @@ class Media(models.Model):
     picture = models.ImageField(upload_to='images/%Y/%m/%d/', 
         help_text="Filesize should not be more than 5mb, Compress first if otherwise")
     caption = models.CharField('picture caption', max_length=256, 
-        help_text="Provide a caption text of not more than 256 characters")
+        help_text="Provide a caption text of not more than 256 characters", unique=True)
     carousel = models.BooleanField("display on the carousel", default=False, 
         help_text="Select this check to show this picture on the homepage slideshow")
 
@@ -195,7 +195,7 @@ class NewsEvent(models.Model):
     Record of news and events of the cbo 
     or related to the cbo
     """
-    headline = models.CharField(max_length=200)
+    headline = models.CharField(max_length=200, unique=True)
     media = models.ManyToManyField(Media, blank=True, 
         help_text="Choose a picture for this news or event")
     content = models.TextField()
@@ -213,8 +213,8 @@ class NewsEvent(models.Model):
         return self.headline
 
     # Lets you view news or event instance on the public site
-    def get_absolute_url(self):
-        return reverse("event_detail", kwargs={"pk": self.pk})
+    #def get_absolute_url(self):
+    #    return reverse("event_detail", kwargs={"pk": self.pk})
     
     
 
@@ -240,7 +240,7 @@ class Partner(models.Model):
         ('SHP', 'Self-Help Group'),
         ('UNC', 'Uncategorized')
     ]
-    partner_name = models.CharField(max_length=50)
+    partner_name = models.CharField(max_length=50, unique=True)
     partner_category = models.CharField(
         max_length=3, choices=partner_choices, default='UNC', blank=True)
     more_info = models.TextField('More information', blank=True, null=True)
