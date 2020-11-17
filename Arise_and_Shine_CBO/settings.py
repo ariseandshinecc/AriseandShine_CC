@@ -34,6 +34,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    #'jazzmin',
     'mainsite.apps.MainsiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -69,7 +70,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'mainsite.context_processors.project_renderer',
-                'mainsite.context_processors.contacts',
+                'mainsite.context_processors.cbo_profile',
             ],
         },
     },

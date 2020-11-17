@@ -21,21 +21,21 @@
 		        <h2 class="alert alert-info w3-center"><strong>About us</strong></h2>
 		        <div>
 		        	<img src="{% static 'mainsite/images/ascc_office_1.jpg' %}" alt="Arise and Shine Office photo" class="w3-round">
-		        	<p class="font-weight-bold">{{ about.about }}</p>
+		        	<p class="font-weight-bold">{{ profile.about }}</p>
 		    	</div>
 		    </div>
 		    <div class="jumbotron w3-card-4 show-on-scroll" id="mission">
 		        <h2 class="alert alert-info w3-center"><strong>Mission</strong></h2>
-		        <p class="font-weight-bold">{{ about.mission }}</p>
+		        <p class="font-weight-bold">{{ profile.mission }}</p>
 		    </div>
 		    <div class="jumbotron w3-card-4 show-on-scroll" id="vision">
 		        <h2 class="alert alert-info w3-center"><strong>Vision</strong></h2>
-		        <p class="font-weight-bold">{{ about.vision }}</p>
+		        <p class="font-weight-bold">{{ profile.vision }}</p>
 		    </div>
 		    <div class="jumbotron w3-card-4 show-on-scroll" id="objectives">
 		        <h2 class="alert alert-info w3-center"><strong>Objectives</strong></h2>
 		        <ol>
-		        {% for object in about.objective_set.all %}
+		        {% for object in profile.objective_set.all %}
 		            <li class="text-center font-weight-bold w3-border w3-padding-8">{{ object.objective }}</li>
 		        {% empty %}
 		            <p class="text-warning">No objectives added</p>
@@ -46,7 +46,7 @@
             <div class="jumbotron w3-card-4 show-on-scroll" id="values">
                 <h2 class="alert alert-info w3-center"><strong>Core Values</strong></h2>
                 <ul>
-                    {% for val in about.value_set.all %}
+                    {% for val in profile.value_set.all %}
                         <li class="w3-center font-weight-bold w3-border w3-padding">{{ val.core_value }}</li>
                     {% empty %}
                         <p class="text-warning">No values added</p>
@@ -54,8 +54,6 @@
                 </ul>
             </div>
         </div>
-        {% else %}
-            <p class="alert alert-danger">{{ default_message }}</p>
         {% endif %}
         <div class="col-sm-2">
             <p class="text-info"><a href="{% url 'mainsite:team' %}">Our Team &rarr;</a></p>
