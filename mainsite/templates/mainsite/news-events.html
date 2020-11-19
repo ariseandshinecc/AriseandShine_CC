@@ -11,7 +11,11 @@
                     <div class="media-body">
                         <p class="alert alert-link">{{ event_item.headline }}</p>
                         <p class="narration">{{ event_item.content }}</p>
-                        <p>{{ event_item.external_link | urlize }}</p>
+                        <!--in case the news/event has external link-->
+                        {% if event_item.external_link %}
+                            <p>{{ event_item.external_link | urlize }}</p>
+                        {% endif %}
+                        
                     </div>
                 </div>
             {% empty %}

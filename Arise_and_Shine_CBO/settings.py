@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'phonenumber_field',
     'widget_tweaks',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -107,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Make the site secure 
+# Site security
 
 
 CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', cast=bool)
@@ -148,14 +149,21 @@ MEDIA_URL = '/media/'
 
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
-# Sending of emails
+# Email
 
-EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+SERVER_EMAIL = config('SERVER_EMAIL')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # A list of people who get error code notifications
 
-ADMINS = [('Hezron', 'otienoh68@gmail.com')]
+ADMINS = [('Hezron', 'hezronotieno@ariseandshinecc.org')]
 
 # A list of people who get broken link notifications
 
-MANAGERS = [('Enocka Odongo', 'enockaodongo13@gmail.com')]
+MANAGERS = [('Hezron', 'otienoh68@gmail.com')]
