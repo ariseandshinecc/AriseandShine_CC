@@ -4,12 +4,12 @@
     <div class="container">
         <section class="w3-section jumbotron">
             {% for event_item in item_list %}
+                <p class="alert alert-link">{{ event_item.headline }}</p>
                 <div class="media border p-3">
                     {% for media in event_item.media.all %}
                         <img src="{{ media.picture.url }}" alt="">
                     {% endfor %}
                     <div class="media-body">
-                        <p class="alert alert-link">{{ event_item.headline }}</p>
                         <p class="narration">{{ event_item.content }}</p>
                         <!--in case the news/event has external link-->
                         {% if event_item.external_link %}

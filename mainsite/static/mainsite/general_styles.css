@@ -90,7 +90,7 @@ nav li a:hover{
     display: block;
 }
 
-.project-list img{
+.project-list img, .media img{
     max-width: 250px;
     width: 100%;
     padding: 2%;

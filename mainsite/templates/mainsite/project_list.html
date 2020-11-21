@@ -20,7 +20,11 @@
             {% for project in project_list  %}
             <div class="jumbotron">
                 <!--project name-->
+                <p class="alert alert-link">
+                    <a href="{{ project.get_absolute_url }} ">{{ project.project_name }}</a>
+                </p>
                 <div class="media border p-3 project-list">
+                    
                     {% for media in project.media.all %}
                         {% if forloop.last %}
                             <img src="{{ media.picture.url }} " alt="Picture" class="mr-3 mt-3 w3-round">
@@ -28,9 +32,6 @@
                     {% endfor %}
                     
                     <div class="media-body">
-                        <p class="alert alert-link">
-                            <a href="{{ project.get_absolute_url }} ">{{ project.project_name }}</a>
-                        </p>
                         <p class="">
                             {{ project.project_description | truncatewords:30 }}
                             <a href="{{ project.get_absolute_url }}" class="btn btn-link w3-hover-light-blue">Read More</a>
