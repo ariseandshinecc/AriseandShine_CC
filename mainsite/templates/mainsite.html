@@ -9,7 +9,7 @@
     {% block rseponsive %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{% static 'mainsite/images/as_logo.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'mainsite/images/favicon.ico' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'mainsite/general_styles.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'mainsite/w3.css' %}">
     <script type="text/javascript" src="{% static 'mainsite/js/w3.js' %}"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <script src="https://kit.fontawesome.com/2b183e1c1a.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'mainsite/js/shine.js' %}"></script>
     {% block extra-style %}{% endblock %}
     <title>{% block title %} Arise and Shine Care Center {% endblock %}</title>
@@ -147,11 +147,11 @@
 	
             <div class="ss-links w3-center">
                 <a href="{{ contact.facebook }}" target="_blank"> 
-                	<img src="{% static 'mainsite/images/facebook-brands.svg' %}" style="width: 20px;">
+                	<span class="fab fa-facebook fa-lg"></span>
                 </a> 
                 &nbsp; 
                 <a href="{{ contact.twitter }}" target="_blank">
-                	<img src="{% static 'mainsite/images/twitter-brands.svg' %}" style="max-width: 20px;">
+                	<span class="fab fa-twitter-square fa-lg"></span>
                 </a>
             </div><br>
             <address class="w3-center">
@@ -172,9 +172,9 @@
                 <a href="{% url 'mainsite:partnership' %}">Become a partner</a>
                 <a href="{% url 'mainsite:donate' %}">donate</a>
             </div>
-            <a href="#" target="_top" class="w3-right btn btn-info w3-btn-floating" 
+            <a href="#" target="_top" class="" 
                 title="Back to top">
-                &#8613;
+                <span class="fas fa-arrow-alt-circle-up fa-lg"></span>
             </a>
             {% comment 'copyright' %}
                 Copyright information
