@@ -20,7 +20,7 @@ class Address(models.Model):
     site_map = models.CharField(max_length=100, null=True, blank=True)
 
     class Meta:
-        verbose_name_plural = "Addresses"
+        verbose_name_plural = "Address"
 
     def __str__(self):
         return f'{self.physical_address}, P.O BOX {self.postal_address} - {self.postal_code}, {self.city}'
@@ -44,6 +44,7 @@ class Career(models.Model):
     application_deadline = models.DateTimeField(blank=True, null=True)
     start_date = models.DateField('job start date', blank=True, null=True)
     end_date = models.DateField('job end date', blank=True, null=True)
+    slug = models.SlugField(max_length=200, unique=True, null=True)
 
     class Meta:
         ordering = ['-date_posted']
@@ -53,7 +54,7 @@ class Career(models.Model):
     
 
     def get_absolute_url(self):
-        return reverse("career-detail", kwargs={"pk": self.pk})
+        return reverse("career-detail", kwargs={"slug": self.slug})
 
 class Contact(models.Model):
     """
@@ -91,7 +92,7 @@ class Donation(models.Model):
     donor_category = models.CharField(
         max_length=3, choices=donor_choices, default='unc', blank=True)
     pledge = models.CharField(max_length=100, blank=True, null=True)
-    other_information = models.TextField(blank=True, null=True)
+    link = models.URLField("Reference link", blank=True, null=True)
     logo = models.ImageField(upload_to='images/logos', null=True, blank=True)
 
     def __str__(self):
@@ -202,7 +203,7 @@ class NewsEvent(models.Model):
     external_link = models.URLField(null=True, blank=True)
     pub_date = models.DateTimeField('publication date', 
         help_text="If you enter a future date, the event will be posted on that date you have entered")
-    
+    slug = models.SlugField(max_length=200, unique=True, null=True)
 
     class Meta:
         ordering = ['-pub_date']
@@ -214,7 +215,7 @@ class NewsEvent(models.Model):
 
     # Lets you view news or event instance on the public site
     #def get_absolute_url(self):
-    #    return reverse("event_detail", kwargs={"pk": self.pk})
+    #    return reverse("event_detail", kwargs={"slug": self.slug})
     
     
 
@@ -243,7 +244,7 @@ class Partner(models.Model):
     partner_name = models.CharField(max_length=50, unique=True)
     partner_category = models.CharField(
         max_length=3, choices=partner_choices, default='UNC', blank=True)
-    more_info = models.TextField('More information', blank=True, null=True)
+    link = models.URLField('reference link', blank=True, null=True)
     logo = models.ImageField(upload_to='images/logos', null=True, blank=True)
 
     def __str__(self):
@@ -293,7 +294,7 @@ class Project(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True, verbose_name="Ended")
     media = models.ManyToManyField(Media, blank=True)
-    
+    slug = models.SlugField(max_length=200, unique=True, null=True)
 
     class Meta:
         ordering = ['-start_date', 'end_date']
@@ -303,7 +304,7 @@ class Project(models.Model):
 
     # Lets you view a project instance on the public site
     def get_absolute_url(self):
-        return reverse("mainsite:project_details", args=[self.thematic_area, self.id])
+        return reverse("mainsite:project_details", kwargs={'thematic_area': self.thematic_area, 'slug':self.slug})
 
     def show_partners(self):
         """Return comma-separated project instance partners."""

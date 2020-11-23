@@ -21,7 +21,7 @@ urlpatterns = [
     path('news-and-events/', NewEventView.as_view(), name='new_event'),
     path('projects-and-programmes/', projects, name='proj_and_prog'),
     path('projects-and-programmes/<str:thematic_area>/', ProjectListView.as_view(), name='projects'),
-    path('projects-and-programmes/<str:thematic_area>/<int:pk>/', ProjectDetailView.as_view(), name='project_details'),
+    path('projects-and-programmes/<str:thematic_area>/<slug:slug>/', ProjectDetailView.as_view(), name='project_details'),
     
 ]
 

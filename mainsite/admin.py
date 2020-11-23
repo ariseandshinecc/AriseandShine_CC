@@ -53,6 +53,7 @@ class ProjectAdmin(admin.ModelAdmin):
         ('Support', {'fields': ['partners', 'donations']}),
         ('Project Timeline', {'fields': ['start_date', 'end_date']}),
         ('Project Media', {'fields': ['media']}),
+        ('Other', {'fields': ['slug']}),
     ]
     inlines = [ImpactInline]
     list_display = ['project_name', 'start_date', 'has_ended', 'show_donors', 'show_partners']
@@ -60,6 +61,7 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ['project_name']
     list_per_page = 10
     date_hierarchy = 'start_date'
+    prepopulated_fields = {'slug': ('project_name',)}
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
@@ -84,6 +86,7 @@ class CareerAdmin(admin.ModelAdmin):
     list_display = ['position', 'date_posted']
     inlines = [DescriptionInline, RequirementInline]
     date_hierarchy = 'date_posted'
+    prepopulated_fields = {'slug': ('position', )}
 
 
 
@@ -94,6 +97,7 @@ class NewsEventAdmin(admin.ModelAdmin):
     list_per_page = 10
     date_hierarchy = 'pub_date'
     filter_vertical = ['media']
+    prepopulated_fields = {'slug': ('headline', )}
 
 
 @admin.register(Donation)
