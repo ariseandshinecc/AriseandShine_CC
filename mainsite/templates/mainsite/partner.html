@@ -4,8 +4,10 @@
     <div class="container w3-section jumbotron">
 
         {% for donor in donations %}
+            {# Check first if logo is uploaded and retrievable #}
             {% if donor.logo %}
-                <a href="{{ donor.other_information }} ">
+                {# Also check if the reference link is provided #}
+                <a href="{% if donor.link %} {{ donor.link }} {% else %} # {% endif %} ">
                     <img src="{{ donor.logo.url }}" alt="{{ donor.donor_name }}_logo " class="logo" 
                         title="{{ donor.donor_name }} ">
                 </a>
@@ -14,8 +16,10 @@
         {% endfor %}
 
         {% for partner in partners %}
+            {# Check first if logo is uploaded and retrievable  #}
             {% if partner.logo %}
-                <a href="{{ partner.more_info }} ">
+                {# Also check if the reference link is provided #}
+                <a href="{% if partner.link %} {{ partner.link }} {% else %} # {% endif %} ">
                     <img src="{{ partner.logo.url }}" alt="{{ partner.partner_name}}_logo" class="logo" 
                         title="{{ partner.partner_name }}">
                 </a>

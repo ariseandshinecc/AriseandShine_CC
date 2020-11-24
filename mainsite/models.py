@@ -117,6 +117,9 @@ class Job_Requirement(models.Model):
     job = models.ForeignKey(Career, on_delete=models.CASCADE)
     requirement = models.CharField(max_length=200)
 
+    class Meta:
+        verbose_name = "Job requirement" # Remove underscore for this model display in admin panel
+
     def __str__(self):
         return self.requirement
     
@@ -127,6 +130,9 @@ class Job_Description(models.Model):
     """
     job = models.ForeignKey(Career, on_delete=models.CASCADE)
     responsibility = models.CharField(max_length=200)
+
+    class Meta:
+        verbose_name = "Job description" # Remove underscore for this model display in admin panel
 
     def __str__(self):
         return self.responsibility
