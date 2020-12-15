@@ -34,14 +34,15 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    #'jazzmin',
-    'mainsite.apps.MainsiteConfig',
+    'jazzmin', # Third party Admin theme
+    'mainsite.apps.MainsiteConfig', # Custom app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party apps
     'phonenumber_field',
     'widget_tweaks',
     'django_cleanup.apps.CleanupConfig',
@@ -107,6 +108,50 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Jazzmin configuration
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Arise and shine Care Center",
+    "site_header": "ARISE AND SHINE CARE CENTER",
+    "site_logo": "mainsite/images/favicon.ico",
+    "welcome_sign": "Welcome to Administration panel",
+    "show_ui_builder": True,
+    "copyright": "Arise and Shine Care Center CBO",
+    "usermenu_links": [
+        {"name": "View site", "url": "mainsite:home", "new_window": True},
+    ],
+    "topmenu_links": [
+        {"name": "View site", "url": "mainsite:home", "new_window": True},
+    ],
+    "icons": {
+        "auth": "fas fa-shield",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "mainsite.Message": "fas fa-comments",
+        "mainsite.Donation": "fas fa-hand-holding-heart",
+        "mainsite.Partner": "fas fa-hands-helping",
+        "mainsite.Media": "fas fa-camera",
+        "mainsite.Profile": "fas fa-landmark",
+        "mainsite.Project": "fas fa-seedling",
+        "mainsite.Career": "fas fa-user-tie",
+        "mainsite.Contact": "fas fa-address-card",
+        "mainsite.Address": "fas fa-address-card",
+        "mainsite.Member": "fas fa-user-friends",
+        "mainsite.NewsEvent": "fas fa-bullhorn",
+
+    },
+
+    "order_with_respect_to": [
+        "mainsite.Profile",
+        "mainsite.Address",
+        "mainsite.Contact",
+        "mainsite.Project",
+        "mainsite.Partner",
+        "mainsite.Donation",
+        "mainsite.Media",
+    ]
+}
 
 # Site security
 
