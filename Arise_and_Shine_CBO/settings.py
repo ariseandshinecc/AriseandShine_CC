@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'widget_tweaks',
     'django_cleanup.apps.CleanupConfig',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [
