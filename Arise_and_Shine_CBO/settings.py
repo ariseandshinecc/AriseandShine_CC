@@ -220,7 +220,7 @@ MEDIA_URL = '/media/'
 PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
 # Email
-"""
+
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
@@ -237,4 +237,4 @@ ADMINS = [('Hezron', 'hezronotieno@ariseandshinecc.org')]
 # A list of people who get broken link notifications
 
 MANAGERS = [('Hezron', 'otienoh68@gmail.com')]
-"""
+
