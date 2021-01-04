@@ -141,7 +141,7 @@ JAZZMIN_SETTINGS = {
         "mainsite.NewsEvent": "fas fa-bullhorn",
 
     },
-
+   
     "order_with_respect_to": [
         "mainsite.Profile",
         "mainsite.Address",
@@ -151,6 +151,31 @@ JAZZMIN_SETTINGS = {
         "mainsite.Donation",
         "mainsite.Media",
     ]
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": True,
+    "brand_colour": "navbar-navy",
+    "accent": "accent-primary",
+    "navbar": "navbar-navy navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-purple",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_style": True,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "default",
+    "dark_mode_theme": None,
+    "actions_sticky_top": True
 }
 
 # Site security
