@@ -33,3 +33,7 @@ This repository contains django code that delivers the www.ariseandshinecc.org w
       - SECRET_KEY=
       - DEBUG=
       - DATABASE_URL=
+
+## Future improvements
+
+    - Serve admin site from a different subdomain e.g admin.ariseanshinecc.org using django-host or any other appropriate lib.
