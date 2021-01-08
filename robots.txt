@@ -1,0 +1,4 @@
+user-agent: *
+Disallow: /media/
+Disallow: /requirements.txt
+Disallow: /admin/
