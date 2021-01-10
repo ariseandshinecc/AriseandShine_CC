@@ -147,17 +147,17 @@
         {% block footer %}
 	
             <div class="ss-links w3-center">
-                <a href="{{ contact.facebook }}" target="_blank"> 
+                <a href="{{ contact.facebook }}" target="_blank" rel="noopener noreferrer"> 
                 	<span class="fab fa-facebook fa-lg"></span>
                 </a> 
                 &nbsp; 
-                <a href="{{ contact.twitter }}" target="_blank">
+                <a href="{{ contact.twitter }}" target="_blank" rel="noopener noreferrer">
                 	<span class="fab fa-twitter-square fa-lg"></span>
                 </a>
             </div><br>
             <address class="w3-center">
                 <a class="">{{ address }}</a>&nbsp.&nbsp
-                <a href="tel:{{ contact.phone}} ">{{ contact.phone }}</a>. &nbsp &nbsp
+                <a href="tel:{{ contact.phone }}" rel="nofollow">{{ contact.phone }}</a>. &nbsp &nbsp
                 {{ contact.email | urlize }}
             </address>
 	
@@ -180,7 +180,7 @@
             {% comment 'copyright' %}
                 Copyright information
             {% endcomment %}
-            <p class="d-none">Copyright &copy; {% now "Y" %} NetGram Softwares. All rights reserved</p>
+            <p class="d-none">Copyright &copy; 2020 - {% now "Y" %} NetGram Softwares. All rights reserved</p>
         {% endblock footer %}
     </footer>
 </body>

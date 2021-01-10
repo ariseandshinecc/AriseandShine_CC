@@ -6,15 +6,17 @@
 	<div class="container">
 		<p>
 			Give us a call or WhatsApp us on 
-			<a href="https://api.whatsapp.com/send?phone={{ contact.whatsapp }}" target="_blank">{{ contact.phone }}</a> 
+			<a href="https://api.whatsapp.com/send?phone={{ contact.whatsapp }}" target="_blank" rel="noopener noreferrer">
+				{{ contact.phone }}
+			</a> 
 		</p>
 		<p>
 			Like and Follow our social media pages
 			<br>
-			<a href="{{ contact.facebook }}" target="_blank" class="">
+			<a href="{{ contact.facebook }}" target="_blank" rel="noopener noreferrer">
 				<span class="fab fa-facebook fa-lg"></span>
 			</a>&nbsp;
-			<a href="{{ contact.twitter }}" target="_blank" class="">
+			<a href="{{ contact.twitter }}" target="_blank" rel="noopener noreferrer">
 				<span class="fab fa-twitter-square fa-lg"></span>
 			</a>
 			

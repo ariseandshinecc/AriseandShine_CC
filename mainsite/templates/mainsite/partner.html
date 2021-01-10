@@ -7,7 +7,7 @@
             {# Check first if logo is uploaded and retrievable #}
             {% if donor.logo %}
                 {# Also check if the reference link is provided #}
-                <a href="{% if donor.link %} {{ donor.link }} {% else %} # {% endif %}" target="_blank">
+                <a href="{% if donor.link %} {{ donor.link }} {% else %} # {% endif %}" target="_blank" rel="noopener noreferrer">
                     <img src="{{ donor.logo.url }}" alt="{{ donor.donor_name }}_logo " class="logo" 
                         title="{{ donor.donor_name }} ">
                 </a>
@@ -19,7 +19,7 @@
             {# Check first if logo is uploaded and retrievable  #}
             {% if partner.logo %}
                 {# Also check if the reference link is provided #}
-                <a href="{% if partner.link %} {{ partner.link }} {% else %} # {% endif %}" target="_blank">
+                <a href="{% if partner.link %} {{ partner.link }} {% else %} # {% endif %}" target="_blank" rel="noopener noreferrer">
                     <img src="{{ partner.logo.url }}" alt="{{ partner.partner_name}}_logo" class="logo" 
                         title="{{ partner.partner_name }}">
                 </a>
