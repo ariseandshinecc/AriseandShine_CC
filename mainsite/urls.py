@@ -3,6 +3,8 @@
 """
 from django.urls import path
 from mainsite.views import *
+from django.views.generic.base import TemplateView
+
 app_name = 'mainsite'
 urlpatterns = [
     path('', index, name='home'),
@@ -22,6 +24,5 @@ urlpatterns = [
     path('projects-and-programmes/', projects, name='proj_and_prog'),
     path('projects-and-programmes/<str:thematic_area>/', ProjectListView.as_view(), name='projects'),
     path('projects-and-programmes/<str:thematic_area>/<slug:slug>/', ProjectDetailView.as_view(), name='project_details'),
-    
+    path('robots.txt', TemplateView.as_view(template_name='mainsite/robots.txt', content_type='text/plain'),),
 ]
-
