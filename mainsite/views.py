@@ -62,7 +62,7 @@ def get_involved(request):
 
 def index(request):
     """Home page view"""
-    carousel = Media.objects.filter(carousel=True)[:5]
+    carousel = Media.objects.filter(carousel=True)[:5:-1]
     return render(request, 'mainsite/home.html', {'carousel': carousel})
 
 def director_message(request):
