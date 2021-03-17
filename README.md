@@ -1,6 +1,6 @@
 # AriseandShine_CC
 
-This repository contains django code that delivers the www.ariseandshinecc.org web application.
+This repository contains django code that delivers the <a href="https://www.ariseandshinecc.org">Arise and Shine Care Center</a> web application.
 
 ## Requirements
 
@@ -28,11 +28,11 @@ This repository contains django code that delivers the www.ariseandshinecc.org w
 
 ## Step 5: Sensitive data
 
-  - Create an .env file to store this kind of information
+  Create an .env file to store this kind of information
     
-      - SECRET_KEY=
-      - DEBUG=
-      - DATABASE_URL=
+    - SECRET_KEY=
+    - DEBUG=
+    - DATABASE_URL=
 
 
 ## Future improvements
