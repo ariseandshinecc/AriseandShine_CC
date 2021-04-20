@@ -13,7 +13,7 @@
                         <p class="narration">{{ event_item.content }}</p>
                         <!--in case the news/event has external link-->
                         {% if event_item.external_link %}
-                            <p>{{ event_item.external_link | urlize }}</p>
+                            <p class="underline">{{ event_item.external_link | urlize }}</p>
                         {% endif %}
                         
                     </div>
