@@ -16,6 +16,7 @@ a{
 }
 .underline {
     text-decoration: underline;
+    text-decoration-color: lightblue;
 }
 
 header h1{
