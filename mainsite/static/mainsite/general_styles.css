@@ -4,6 +4,12 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 a:hover {
   text-shadow: aquamarine;
   text-decoration: none;

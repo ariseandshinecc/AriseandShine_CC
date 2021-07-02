@@ -6,6 +6,7 @@
     <meta name="description"
      content="Arise and Shine Care Center is a non-profit Community-Based Organization in Muhoroni Sub-County, Kisumu, Kenya.
      It was founded in 2010 by youths from Ombeyi Ward.">
+    <title>{% block title %} Arise and Shine Care Center {% endblock %}</title>
     {% block rseponsive %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% endblock %}
@@ -21,13 +22,12 @@
     <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'mainsite/js/shine.js' %}"></script>
     {% block extra-style %}{% endblock %}
-    <title>{% block title %} Arise and Shine Care Center {% endblock %}</title>
 </head>
 <body>
-    <header class="w3-purple" id="site-head">
+    <header class="" id="site-head">
     {% block header %}
         
-            <div id="site-brand" class="navbar-header d-flex justify-content-start">
+            <div id="site-brand" class="navbar-header d-flex justify-content-start w3-purple sticky-top">
                 <a class="w3-left navbar-brand" href="{% url 'mainsite:home' %}">
                     <img src="{% static 'mainsite/images/as_logo.png' %}" alt="logo" width="100%" class="embed-responsive">
                 </a>
@@ -41,7 +41,7 @@
                         <a href="javascript:void(0);" onclick="ariseNavs()" class="alert alert-link">&#9776;</a>
                 </div>
             </div>
-            <nav class="navbar w3-hide-small" id="nav-bar">
+            <nav class="navbar w3-hide-small w3-purple" id="nav-bar">
                 <ul class="">
                     
                     <li class="w3-hide-small nav-item"><a href="{% url 'mainsite:home' %}" class="nav-link">Home</a></li>
