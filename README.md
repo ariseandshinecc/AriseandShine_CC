@@ -2,6 +2,8 @@
 
 This repository contains django code that delivers the <a href="https://www.ariseandshinecc.org">Arise and Shine Care Center</a> web application.
 
+You can follow this README alongside <a href="https://docs.djangoproject.com/en/3.1/">official django docs</a>. and <a href="https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html">simple is better than complex tutorials</a>
+
 ## Requirements
 
 - Python 3.6+,
@@ -35,7 +37,14 @@ Create an .env file to store this kind of information
 - DEBUG=
 - DATABASE_URL=
 
+## Step 6: Create superuser
+
+Create a supperuser for Site admin login by running the following command on the terminal or command prompt.
+Follow the prompts, remember you won't see your password as you type.
+
+    python manage.py createsuperuser
+
 ## Future improvements
 
-    - Serve admin site from a different subdomain e.g admin.ariseanshinecc.org using django-host or any other appropriate lib.
-    - Writing unit tests.
+- Serve admin site from a different subdomain e.g admin.ariseanshinecc.org using django-host or any other appropriate lib.
+- Writing unit tests.
