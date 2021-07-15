@@ -1,5 +1,5 @@
 {% extends 'mainsite.html' %}
-{% block title %} Arise and Shine | {{ project }} {% endblock %}
+{% block title %} Arise and Shine | {{ project.get_thematic_area_display }} - {{ project.project_name }} {% endblock %}
 {% block body-content %}
     <ul class="breadcrumb">
             <li>

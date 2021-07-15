@@ -1,6 +1,11 @@
 {% extends 'mainsite.html' %}
 {% load static %}
-{% block title %} Arise and Shine |  projects {% endblock %}
+{% block title %}
+ Arise and Shine |   
+ {% for project in project_list %} 
+    {% if forloop.first %} {{ project.get_thematic_area_display  }} Projects {% endif %}
+ {% endfor %} 
+{% endblock %}
 {% block body-content %}
     <ul class="breadcrumb">
             <li>
