@@ -29,13 +29,10 @@ You can follow this README alongside <a href="https://docs.djangoproject.com/en/
 - clone the repostory in the virtual env
 - pip install -r requirements.txt. This install all the project requirements including django,
 
-## Step 5: Sensitive data
+## Step 5: Application secrets
 
-Create an .env file to store this kind of information
-
-- SECRET_KEY=
-- DEBUG=
-- DATABASE_URL=
+Create an .env file on the app root directory. Copy the contents of .env.example to .env file you just created.
+Edit the information according to your application configuration.
 
 ## Step 6: Create superuser
 
