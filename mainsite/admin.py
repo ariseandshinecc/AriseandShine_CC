@@ -4,21 +4,21 @@
 
 
 from django.contrib import admin
-from .models import *
+from mainsite import models as app_models
 # Register your models here.
 
 
 class ObjectiveInline(admin.TabularInline):
-    model = Objective
+    model = app_models.Objective
     fields = ['objective']
     extra = 0
 
 class ValueInline(admin.TabularInline):
-    model = Value
+    model = app_models.Value
     fields = ['core_value']
     extra = 0
 
-@admin.register(Profile)
+@admin.register(app_models.Profile)
 class ProfileAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Profile', {'fields':['brand', 'about', 'slogan']}),
@@ -30,7 +30,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
     list_display = ['brand', 'slogan', 'mission', 'vision']
 
-@admin.register(Member)
+@admin.register(app_models.Member)
 class MemberAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Bio data', {'fields': ['first_name', 'last_name', 'other_names', 'id_number', 'date_of_birth']}),
@@ -47,11 +47,11 @@ class MemberAdmin(admin.ModelAdmin):
 
 
 class ImpactInline(admin.TabularInline):
-    model = Impact
+    model = app_models.Impact
     fields = ['impact_text']
     extra = 0
 
-@admin.register(Project)
+@admin.register(app_models.Project)
 class ProjectAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Project info', {'fields': ['thematic_area', 'project_name', 'project_description']}),
@@ -68,7 +68,7 @@ class ProjectAdmin(admin.ModelAdmin):
     date_hierarchy = 'start_date'
     prepopulated_fields = {'slug': ('project_name',)}
 
-@admin.register(Message)
+@admin.register(app_models.Message)
 class MessageAdmin(admin.ModelAdmin):
     fields = (('sender_name', 'phone_number', 'email'), 'message')
     list_display = ['sender_name', 'phone_number', 'email', 'time_of_receipt']
@@ -77,16 +77,16 @@ class MessageAdmin(admin.ModelAdmin):
 
 
 class DescriptionInline(admin.TabularInline):
-    model = Job_Description
+    model = app_models.Job_Description
     fields = ['responsibility']
     extra = 0
 
 class RequirementInline(admin.TabularInline):
-    model = Job_Requirement
+    model = app_models.Job_Requirement
     fields = ['requirement']
     extra = 0
 
-@admin.register(Career)
+@admin.register(app_models.Career)
 class CareerAdmin(admin.ModelAdmin):
     list_display = ['position', 'date_posted']
     inlines = [DescriptionInline, RequirementInline]
@@ -95,7 +95,7 @@ class CareerAdmin(admin.ModelAdmin):
 
 
 
-@admin.register(NewsEvent)
+@admin.register(app_models.NewsEvent)
 class NewsEventAdmin(admin.ModelAdmin):
     list_display = ['headline', 'pub_date', 'external_link']
     list_filter = ['pub_date']
@@ -105,19 +105,19 @@ class NewsEventAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('headline', )}
 
 
-@admin.register(Donation)
+@admin.register(app_models.Donation)
 class DonationAdmin(admin.ModelAdmin):
     list_display = ['donor_name', 'donor_category']
     list_filter = ['donor_category']
 
 
-@admin.register(Partner)
+@admin.register(app_models.Partner)
 class PartnerAdmin(admin.ModelAdmin):
     list_display = ['partner_name', 'partner_category']
     list_filter = ['partner_category']
 
 
-@admin.register(Media)
+@admin.register(app_models.Media)
 class MediaAdmin(admin.ModelAdmin):
     #fields = (('caption', 'picture'), 'carousel')
     fieldsets = [
@@ -127,10 +127,10 @@ class MediaAdmin(admin.ModelAdmin):
     list_display = ('caption', 'picture', 'carousel')
     list_per_page = 10
 
-@admin.register(Contact)
+@admin.register(app_models.Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('phone', 'whatsapp', 'email', 'facebook', 'twitter')
 
-@admin.register(Address)
+@admin.register(app_models.Address)
 class AddressAdmin(admin.ModelAdmin):
     list_display = ('physical_address', 'postal_address', 'postal_code', 'city')

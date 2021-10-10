@@ -6,7 +6,7 @@
 """ 
     Context data available for all templates 
 """
-from .models import Project, Profile
+from mainsite.models import Project, Profile
 
 def project_renderer(request):
     """

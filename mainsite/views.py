@@ -1,14 +1,15 @@
-
-
-from django.shortcuts import render, get_list_or_404, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
-from django.urls import reverse
-from .models import *
-from .forms import MessageForm
-from django.contrib import messages
 #  This Source Code Form is subject to the terms of the Mozilla Public
 #  License, v. 2.0. If a copy of the MPL was not distributed with this
 #  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .forms import MessageForm
+from django.contrib import messages
+from mainsite.models import(
+    Project, Media, NewsEvent, Donation, Partner
+)
 
 
 from django.views.generic import ListView, DetailView
