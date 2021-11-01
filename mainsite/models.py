@@ -308,6 +308,7 @@ class Project(models.Model):
 
     class Meta:
         ordering = ['-start_date', 'end_date']
+        verbose_name = 'Projects/Program'
 
     def __str__(self):
         return self.project_name
