@@ -26,6 +26,8 @@ def careers(request):
     """Careers page view"""
     return render(request, 'mainsite/careers.html')
 
+# Look for a way to combine this with send_message view
+# and fix a bug that results in error traceback on the error logs
 def contact(request):
     """Contact us page view"""
     form = MessageForm
