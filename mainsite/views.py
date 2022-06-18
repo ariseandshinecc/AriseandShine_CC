@@ -30,7 +30,7 @@ def careers(request):
 # and fix a bug that results in error traceback on the error logs
 def contact(request):
     """Contact us page view"""
-    form = MessageForm
+    form = MessageForm()
    
     context = {
         'form': form,
