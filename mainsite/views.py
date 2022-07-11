@@ -32,11 +32,19 @@ def contact(request):
     """Contact us page view"""
     form = MessageForm()
    
-    context = {
-        'form': form,
-        
-    }
-    return render(request, 'mainsite/contact.html', context)
+    if request.method == 'POST':
+        form = MessageForm(request.POST or None)
+        try:
+            if form.is_valid:
+                form.save()
+                messages.success(request, 'Your message has been sent.')
+                return HttpResponseRedirect(reverse('mainsite:contact', ))
+        except:
+            return render(request, 'mainsite/contact.html', {
+                'form': form,
+                'error_message': 'You may have entered incorrect data in one of the fields. Please check.'
+            })
+    return render(request, 'mainsite/contact.html', {'form': form})
 
 def donate(request):
     return render(request, 'mainsite/donate.html')
@@ -131,26 +139,6 @@ def partnership(request):
         'partners': partners,
     }
     return render(request, 'mainsite/partner.html', context)
-
-def send_message(request):
-    
-    if request.method == 'POST':
-        form = MessageForm(request.POST or None)
-        try:
-            if form.is_valid:
-                form.save()
-                messages.success(request, 'Your message has been received, we will get back to you as soon as possible')
-                return HttpResponseRedirect(reverse('mainsite:contact', ))
-        except:
-            return render(request, 'mainsite/contact.html',
-                {
-                    'form':form,
-                    'error_message': 'OOPS!, You may have entered incorrect data in one of the fields'
-                    }
-                )
-
-    else:
-        form = MessageForm()
 
 
 def volunteer(request):
