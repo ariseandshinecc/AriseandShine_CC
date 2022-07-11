@@ -4,6 +4,8 @@ This repository contains django code that delivers the <a href="https://www.aris
 
 You can follow this README alongside <a href="https://docs.djangoproject.com/en/3.1/">official django docs</a>. and <a href="https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html">simple is better than complex tutorials</a>
 
+[![Django CI](https://github.com/google-boy/AriseandShine_CC/actions/workflows/django.yml/badge.svg)](https://github.com/google-boy/AriseandShine_CC/actions/workflows/django.yml)
+
 ## Requirements
 
 - Python 3.6+,
