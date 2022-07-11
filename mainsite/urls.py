@@ -16,7 +16,6 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('about/team/', team, name='team'),
     path('contact/', contact, name='contact'),
-    path('contact/message/', send_message, name="message"),
     path('downloads/', downloads, name='downloads'),
     path('gallery/', GalleryView.as_view(), name='gallery'),
     path('get_involved/', get_involved, name='involve'),
