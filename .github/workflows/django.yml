@@ -8,6 +8,7 @@ on:
 
 env:
   SECRET_KEY: 'django-insecure-un3q1o@dr#)&u013904qwskp-xp3ah7bsb(=t!^%ad6o*lvp-('
+  DATABASE_URL: sqlite:///
 
 jobs:
   build:
