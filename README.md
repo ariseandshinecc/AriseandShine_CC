@@ -10,7 +10,7 @@ You can follow this README alongside <a href="https://docs.djangoproject.com/en/
 
 - Python 3.8+,
 - PostgreSQL 10+,
-- Python Virtualenv(optional).
+- Python Virtualenv.
 
 ## Step 1: Installations
 
