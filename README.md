@@ -8,13 +8,13 @@ You can follow this README alongside <a href="https://docs.djangoproject.com/en/
 
 ## Requirements
 
-- Python 3.6+,
+- Python 3.8+,
 - PostgreSQL 10+,
 - Python Virtualenv(optional).
 
 ## Step 1: Installations
 
-- Make sure Python3.6+ is installed on your OS
+- Make sure Python3.8+ is installed on your OS
 - Install PostgreSQL 10+
   
 ## Step 2: Database Configuration
