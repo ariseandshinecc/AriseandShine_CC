@@ -10,7 +10,7 @@ from django.contrib import messages
 from mainsite.models import(
     Project, Media, NewsEvent, Donation, Partner
 )
-
+import datetime
 
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
@@ -90,7 +90,8 @@ class NewEventView(ListView):
 
     def get_queryset(self):
         return NewsEvent.objects.filter(
-            pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+            pub_date__lte=timezone.now(),
+            pub_date__gte=timezone.now()-datetime.timedelta(days=30)).order_by('-pub_date')[:5]
     
 
 
