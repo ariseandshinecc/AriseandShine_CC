@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config, Csv
-import dj_database_url
+from dj_database_url import parse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,8 +89,10 @@ WSGI_APPLICATION = 'Arise_and_Shine_CBO.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-    	default=config('DATABASE_URL')
+    'default': config(
+        'DATABASE_URL',
+        default='sqlite:///db.sqlite3',
+        cast=parse
     )
 }
 
@@ -229,7 +231,7 @@ PHONENUMBER_DB_FORMAT = 'INTERNATIONAL'
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
-EMAIL_PORT = config('EMAIL_PORT', default=25)
+EMAIL_PORT = config('EMAIL_PORT', default=25, cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='webmaster@localhost')
 SERVER_EMAIL = config('SERVER_EMAIL', default='root@localhost')
