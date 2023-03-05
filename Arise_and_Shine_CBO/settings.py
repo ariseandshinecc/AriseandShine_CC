@@ -240,9 +240,9 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 
 # A list of people who get error code notifications
 
-ADMINS = [config('ADMINS', cast=Csv(post_process=tuple))]
+ADMINS = [config('ADMINS', default='info,info@ariseandshinecc.org' ,cast=Csv(post_process=tuple))]
 
 # A list of people who get broken link notifications
 
-MANAGERS = [config('MANAGERS', cast=Csv(post_process=tuple))]
+MANAGERS = [config('MANAGERS', default='info,info@ariseandshinecc.org', cast=Csv(post_process=tuple))]
 
