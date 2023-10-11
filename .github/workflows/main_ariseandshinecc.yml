@@ -39,6 +39,7 @@ jobs:
           path: |
             . 
             !venv/
+          run: ./manage.py collectstatic
 
   deploy:
     runs-on: ubuntu-latest
