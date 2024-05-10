@@ -134,3 +134,5 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(app_models.Address)
 class AddressAdmin(admin.ModelAdmin):
     list_display = ('physical_address', 'postal_address', 'postal_code', 'city')
+
+admin.site.site_header = "Arise and Shine Care Center"
