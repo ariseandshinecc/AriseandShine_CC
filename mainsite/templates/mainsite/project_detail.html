@@ -16,25 +16,28 @@
         
         <h4 class="alert alert-heading alert-info"> {{ project.project_name }} </h4>
         <article class="a-project">
-            
-                <img src="{{ project.media.first.picture.url }}" alt="project photo" class="embed-responsive-4by3">
-            
-            <section class="narration">{{ project.project_description }}</section>
-            {% if project.media.count > 1 %}
-                <img src="{{ project.media.last.picture.url}} " alt="Visual" class="embed-responsive-4by3">
-            {% endif %}
-            
-            <section>
-            {% if project.impact_set.all %}
-                <h5 class="text-black-50">Impact of this project</h5>
-                <ul>
-                {% for impact in project.impact_set.all %}
-                    <li>{{ impact.impact_text }}</li>
-                {% endfor %}
-                </ul>
-            {% endif %}
-            
-            </section>
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{ project.media.first.picture.url }}" alt="project photo" class="embed-responsive-4by3">
+                    {% if project.media.count > 1 %}
+                        <img src="{{ project.media.last.picture.url}} " alt="Visual" class="embed-responsive-4by3">
+                    {% endif %}
+                </div>
+                
+                <div class="col-md-9">
+                    <section class="narration">{{ project.project_description }}</section>
+                    <section>
+                        {% if project.impact_set.all %}
+                            <h5 class="text-black-50">Impact of this project</h5>
+                            <ul>
+                            {% for impact in project.impact_set.all %}
+                                <li>{{ impact.impact_text }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </section>
+                </div>
+            </div>
         </article>
     </div>
 {% endblock %}
